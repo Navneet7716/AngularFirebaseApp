@@ -1,0 +1,51 @@
+<div class="card shadow m-5">
+  <div class="card-body">
+    <form>
+      <div class="row">
+        <div class="col-sm">
+          <label style="margin-left: 10%;">
+            Title:
+          </label>
+          <input
+            type="text"
+            class="form-control shadow-sm"
+            name="title"
+            [(ngModel)]="item.title"
+            style="width: 70%; margin-left: 10%;"
+          />
+        </div>
+
+        <div class="col-sm">
+          <label for="description">
+            Description:
+          </label>
+          <input
+            type="text"
+            class="form-control shadow-sm"
+            name="description"
+            [(ngModel)]="item.description"
+            style="margin-right: 20%;"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="ml-5 mr-5">
+            <button
+              type="submit"
+              (click)="onSubmit()"
+              class="btn shadow mt-3 rounded"
+              style="
+                background-color: #69f0ae;
+                border: 3px solid #69f0ae;
+                width: 100%;
+              "
+            >
+              Add Item
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

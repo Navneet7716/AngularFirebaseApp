@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="card shadow p-2 mt-5 bg-white rounded" style="display: flex;">
+    <div class="card-body">
+      <div *ngIf="items?.length > 0; else noItems">
+        <div
+          class="card shadow-sm m-2 bg-white rounded"
+          *ngFor="let item of items"
+        >
+          <div class="card-body" style="text-align: center;">
+            <div>
+              <strong class="m-2">{{ item.title }}: </strong>
+              {{ item.description }}
+              <div style="text-align: center; margin-top: 2.5%;" class="mb-2">
+                <button
+                  *ngIf="editState != true"
+                  (click)="editItem($event, item)"
+                  class="btn btn-light shadow rounded"
+                >
+                  Edit ✏
+                </button>
+                <button
+                  *ngIf="editState && itemToEdit.id == item.id"
+                  (click)="clearState()"
+                  class="btn btn-light shadow rounded"
+                >
+                  ⏏
+                </button>
+              </div>
+              <div *ngIf="editState && itemToEdit.id == item.id">
+                <form (ngSubmit)="updateItem(item)">
+                  <div class="row">
+                    <div class="col-sm">
+                      <input
+                        type="text"
+                        class="form-control shadow-sm"
+                        name="title"
+                        [(ngModel)]="item.title"
+                        style="width: 70%; margin-left: 10%;"
+                      />
+                    </div>
+
+                    <div class="col-sm">
+                      <input
+                        type="text"
+                        class="form-control shadow-sm"
+                        name="description"
+                        [(ngModel)]="item.description"
+                        style="margin-right: 20%;"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      (click)="updateItem(item)"
+                      class="btn shadow mt-3 rounded"
+                      style="
+                        background-color: #69f0ae;
+                        border: 3px solid #69f0ae;
+                      "
+                    >
+                      Update
+                    </button>
+                    <button
+                      type="submit"
+                      (click)="deleteItem($event, item)"
+                      class="btn btn-danger shadow mt-3 rounded"
+                      style="border: 3px solid #dc3545; margin-left: 2%;"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noItems>
+      <hr />
+      <h5>THERE ARE NO ITEMS</h5>
+    </ng-template>
+  </div>
+</div>

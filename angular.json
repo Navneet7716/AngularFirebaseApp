@@ -117,8 +117,13 @@
               "devServerTarget": "angularfs:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angularfs"
 }
