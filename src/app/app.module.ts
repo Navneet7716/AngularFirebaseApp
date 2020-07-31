@@ -11,8 +11,6 @@ import { ItemService } from './services/item.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +18,6 @@ import { RegisterComponent } from './components/register/register.component';
     ItemsComponent,
     NavbarComponent,
     AddItemComponent,
-    LoginComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,
